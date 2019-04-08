@@ -16,6 +16,11 @@ import java.util.Scanner;
 
 import static org.xmlpull.v1.XmlPullParser.TYPES;
 
+/**
+ * @author Tom Gibbons
+ * This class uses logs to get the weather data needed.
+ */
+
 public class AsyncDownloadXML extends AsyncTask<MainActivity, String, String> {
 
     MainActivity mainActivityLink;
@@ -86,6 +91,9 @@ public class AsyncDownloadXML extends AsyncTask<MainActivity, String, String> {
     }
 
     @Override
+    /**
+     * Sets the Temperature and Wind
+     */
     protected void onProgressUpdate(String... update) {
         Log.v("== CIS 3334 ==","in onProgressUpdate");
         mainActivityLink.setTemp(update[0]);
@@ -93,6 +101,9 @@ public class AsyncDownloadXML extends AsyncTask<MainActivity, String, String> {
     }
 
     @Override
+    /**
+     * Sets the status of the result
+     */
     protected void onPostExecute(String result) {
         Log.v("== CIS 3334 ==", "in onPostExecute");
         mainActivityLink.setStatus(result);

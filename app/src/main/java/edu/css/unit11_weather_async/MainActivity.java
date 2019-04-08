@@ -12,6 +12,11 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
 
+/**
+ * @author Tom Gibbons
+ * This class uses a button click to set all the text fields required.
+ */
+
 public class MainActivity extends AppCompatActivity {
     EditText etLoc;
     EditText etTemp;
@@ -21,6 +26,9 @@ public class MainActivity extends AppCompatActivity {
     AsyncDownloadXML AsyncWeatherDownloader = new AsyncDownloadXML();
 
     @Override
+    /**
+     * OnCreate method
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -32,6 +40,13 @@ public class MainActivity extends AppCompatActivity {
         etVis =  (EditText) findViewById(R.id.textVis);
     }
 
+    /**
+     * Button that Downloads weather and sets all the text
+     * @param v
+     * @throws XmlPullParserException
+     * @throws URISyntaxException
+     * @throws IOException
+     */
     public void btnClick (View v) throws XmlPullParserException, URISyntaxException, IOException {
         // Download the weather asynchronously
         AsyncWeatherDownloader.execute(this);
